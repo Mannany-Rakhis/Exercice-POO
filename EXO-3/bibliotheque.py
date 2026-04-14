@@ -13,9 +13,9 @@ class Bibliotheque:
        for livre in self.livres:
           if livre.titre == titre:
             return livre
-    return None 
-
-    def emprunter_livre(self, titre, nom_emprunteur):
+    return None
+       
+def emprunter_livre(self, titre, nom_emprunteur):
         livre = self.rechercher(titre)
         if livre:
             if livre.disponible:
@@ -27,7 +27,7 @@ class Bibliotheque:
             print(f"Le livre '{titre}' n'existe pas dans la bibliothèque.")
 
 
-    def rendre_livre(self, titre):
+def rendre_livre(self, titre):
         livre = self.rechercher(titre)
         if livre:
             if not livre.disponible:
@@ -37,11 +37,13 @@ class Bibliotheque:
         else:
             print(f"Le livre '{titre}' n'existe pas dans la bibliothèque.")
     
-    def statistiques(self):
+def statistiques(self):
         print(f"Nombre total de livres : {len(self.livres)}")
         print(f"Nombre de livres disponibles : {len(self.livres_disponibles())}")
         print(f"Nombre total d'emprunts : {self.nb_emprunts_total}")
         
-    def livres_disponibles(self):
+def livres_disponibles(self):
         return [livre for livre in self.livres if livre.disponible]
+    
+    
     
