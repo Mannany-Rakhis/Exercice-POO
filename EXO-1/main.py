@@ -28,7 +28,6 @@ print(f"Voiture 1 après 1000 km: {voiture1.kilometrage} km")
 print(f"Voiture 2 après 500 km: {voiture2.kilometrage} km")
 print()
 
-# Estimation de la valeur
 print("Estimation de la valeur actuelle:")
 print(f"Voiture 1: {voiture1.estimer_valeur()} €")
 print(f"Voiture 2: {voiture2.estimer_valeur()} €")

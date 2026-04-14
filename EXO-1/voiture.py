@@ -8,7 +8,7 @@ class Voiture:
         self.kilometrage = kilometrage
         self.prix_neuf = prix_neuf
         Voiture.nb_voitures += 1
-
+    
     def afficher(self):
         print(f"Marque: {self.marque}")
         print(f"Modèle: {self.modele}")
