@@ -11,7 +11,7 @@ class Produit(ABC):
 
     @abstractmethod
     def calculer_frais_livraison(self): pass
-
+ 
     @abstractmethod
     def afficher_details(self): pass
 
