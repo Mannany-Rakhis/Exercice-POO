@@ -3,10 +3,9 @@ class CompteBancaire:
 
     def __init__(self, titulaire, solde, decouvert_autorise=0):
         self.decouvert_autorise = decouvert_autorise
-        self.historique = []
+        self.historique = []  # opérations réussies
         self.titulaire = titulaire
         self.solde = solde
-
 
     @property
     def titulaire(self):
@@ -19,7 +18,6 @@ class CompteBancaire:
         if not valeur.strip():
             raise ValueError("Le titulaire ne peut pas être vide")
         self._titulaire = valeur.strip()
-
 
     @property
     def decouvert_autorise(self):
@@ -34,7 +32,6 @@ class CompteBancaire:
         if valeur < 0:
             raise ValueError("Le découvert autorisé doit être positif ou nul")
         self._decouvert_autorise = valeur
-
 
     @property
     def solde(self):
@@ -52,7 +49,6 @@ class CompteBancaire:
             )
         self._solde = round(valeur, 2)
 
-
     @property
     def est_a_decouvert(self):
         return self._solde < 0
@@ -61,8 +57,8 @@ class CompteBancaire:
     def nb_operations(self):
         return len(self.historique)
 
-
     def deposer(self, montant):
+        """Dépose un montant valide sur le compte et enregistre l'opération."""
         if isinstance(montant, bool):
             raise TypeError("Pas de booléen pour le montant")
         if not isinstance(montant, (int, float)):
@@ -74,6 +70,7 @@ class CompteBancaire:
         print(f"Dépôt de {montant}. Nouveau solde : {self._solde}")
 
     def retirer(self, montant):
+        """Retire un montant si possible, enregistre l'opération et retourne True/False."""
         if isinstance(montant, bool):
             raise TypeError("Pas de booléen pour le montant")
         if not isinstance(montant, (int, float)):
@@ -89,15 +86,18 @@ class CompteBancaire:
         return True
 
     def virement(self, autre_compte, montant):
+        """Effectue un virement vers un autre compte."""
         if self.retirer(montant):
             autre_compte.deposer(montant)
 
     def afficher_historique(self):
+        """Affiche l'historique des opérations réussies."""
         print(f"Historique de {self._titulaire} :")
         for operation in self.historique:
             print(f"  {operation}")
 
     def appliquer_interets(self):
+        """Applique les intérêts si le solde est positif."""
         if self._solde > 0:
             interets = round(self._solde * CompteBancaire.taux_interet, 2)
             self._solde = round(self._solde + interets, 2)
