@@ -32,45 +32,45 @@ def test_compte_bancaire():
     try:
         c.titulaire = ""
     except ValueError as e:
-        print(f"✅ Erreur capturée : {e}")
+        print(f" Erreur capturée : {e}")
     print()
 
     print("→ Tentative de dépôt avec booléen (True) :")
     try:
         c.deposer(True)
     except TypeError as e:
-        print(f"✅ Erreur capturée : {e}")
+        print(f" Erreur capturée : {e}")
     print()
 
     print("→ Tentative de dépôt avec montant négatif (-50) :")
     try:
         c.deposer(-50)
     except ValueError as e:
-        print(f"✅ Erreur capturée : {e}")
+        print(f" Erreur capturée : {e}")
     print()
 
     print("→ Tentative de retrait avec booléen (False) :")
     try:
         c.retirer(False)
     except TypeError as e:
-        print(f"✅ Erreur capturée : {e}")
+        print(f" Erreur capturée : {e}")
     print()
 
     print("→ Tentative d'assignation directe d'un solde invalide (-300) :")
     try:
         c.solde = -300
     except ValueError as e:
-        print(f"✅ Erreur capturée : {e}")
+        print(f" Erreur capturée : {e}")
     print()
 
     print("→ Tentative d'assignation à est_a_decouvert (lecture seule) :")
     try:
         c.est_a_decouvert = True
     except AttributeError as e:
-        print(f"✅ Erreur capturée : {e}")
+        print(f"Erreur capturée : {e}")
     print()
 
-    print("✅ Tous les tests ont réussi !")
+    print("🫡 Tous les tests ont réussi !")
 
 if __name__ == "__main__":
     test_compte_bancaire()
