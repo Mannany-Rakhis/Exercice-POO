@@ -25,7 +25,7 @@ class Temperature:
         if not isinstance(valeur, (int, float)):
             raise TypeError("La température doit être un nombre")
         if valeur < -273.15:
-            raise ValueError("Température inférieure au zéro absolu (-273.15°C)")
+            raise ValueError("Température inférieure au zéro absolu (-273.15°C)") 
         if valeur > 1_000_000:
             raise ValueError("Température trop élevée (max : 1 000 000°C)")
         self._valeur_celsius = valeur
@@ -33,7 +33,7 @@ class Temperature:
 
     @property
     def fahrenheit(self):
-        """Convertit en Fahrenheit : F = (C × 9/5) + 32"""
+        """Convertit en Fahrenheit : F = (C × 9/5) + 32""" 
         return round((self._valeur_celsius * 9 / 5) + 32, 2)
 
     @property
