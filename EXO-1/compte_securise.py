@@ -3,7 +3,7 @@ class CompteBancaire:
 
     def __init__(self, titulaire, solde, decouvert_autorise=0):
         self.decouvert_autorise = decouvert_autorise
-        self.historique = []  # opérations réussies
+        self.historique = []  
         self.titulaire = titulaire
         self.solde = solde
 
