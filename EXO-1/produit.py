@@ -22,5 +22,11 @@ class Produit:
     def __lt__(self, other):
         return self._prix_ht < other._prix_ht
 
-
-                                                                                                                                                                
+    @classmethod
+    def from_dict(cls, data):
+        return cls(data["ref"], data["nom"], data["prix"])
+ 
+    @staticmethod
+    def valider_prix(prix):
+        if isinstance(prix, bool): return False
+        return isinstance(prix, (int, float)) and prix > 0                                                                                                                                                             
