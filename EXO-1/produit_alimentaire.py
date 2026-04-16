@@ -29,5 +29,5 @@ class ProduitAlimentaire(Produit):
         return 15.00
 
     def afficher_details(self):
-        statut = "⚠ PÉRIMÉ" if self.est_perime() else "OK"
+        statut = " PÉRIMÉ" if self.est_perime() else "OK"
         print(f"  Péremption : {self._date_peremption} [{statut}]")
